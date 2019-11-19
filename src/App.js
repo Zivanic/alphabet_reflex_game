@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 //components
 import SideScore from '../src/components/score/SideScore'
 import Difficulties from '../src/components/difficulties/Difficulties'
+import StartButton from '../src/components/button/StartButton'
+import PlayingPanel from '../src/components/playingPanel/PlayingPanel'
 
 class App extends Component {
 
@@ -11,7 +13,10 @@ class App extends Component {
     hit: 0,
     left: 29,
     difficultyLevel: "3500",
-    inPlay: false
+    inPlay: false,
+    currentNumber:null,
+    currentLetter:'',
+    playerGuessLetter:''
 
   }
 
@@ -20,6 +25,28 @@ class App extends Component {
       difficultyLevel: level
     })
   }
+
+  startGame = () => {
+    this.setState({
+      inPlay: !this.state.inPlay
+    })
+    ///....
+
+  }
+  restartGame = () => {
+    this.setState({
+      inPlay: !this.state.inPlay,
+      playerGuessLetter: ''
+    })
+    //.....
+  }
+
+  handleInput = (letter) => {
+    this.setState({
+      playerGuessLetter: letter
+    })
+  }
+
 
   render() {
 
@@ -33,11 +60,22 @@ class App extends Component {
           left={this.state.left}
         />
         <Difficulties
-        setDifficulty={this.setDifficulty}
+          setDifficulty={this.setDifficulty}
           currLevel={this.state.difficultyLevel}
           inPlay={this.state.inPlay}
         />
+        <StartButton
+          startGame={this.startGame}
+          restartGame={this.restartGame}
+          inPlay={this.state.inPlay}
+        />
+        <PlayingPanel
+          currNum={this.state.currentNumber}
+          handleInput={this.handleInput}
+          inputValue={this.state.playerGuessLetter}
+        />
       </div>
+
 
     );
   }
