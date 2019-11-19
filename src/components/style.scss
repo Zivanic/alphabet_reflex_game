@@ -1,0 +1,17 @@
+.sideScore{
+    position: absolute;
+    right: 30px;
+    text-align: right;
+
+    .hit{
+        color: #528052;
+    }
+    .miss{
+        color: #f44336;
+    }
+    .left{
+        color: #4b0082;
+    }
+
+    
+}
