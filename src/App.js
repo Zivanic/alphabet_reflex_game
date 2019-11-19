@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-
+import './index.css'
 //components
 import SideScore from '../src/components/score/SideScore'
 import Difficulties from '../src/components/difficulties/Difficulties'
 import StartButton from '../src/components/button/StartButton'
 import PlayingPanel from '../src/components/playingPanel/PlayingPanel'
+import LetterPanel from '../src/components/playingPanel/LetterPanel'
 
 class App extends Component {
 
@@ -16,7 +17,17 @@ class App extends Component {
     inPlay: false,
     currentNumber:null,
     currentLetter:'',
-    playerGuessLetter:''
+    playerGuessLetter:'',
+    allLetters: [],
+    remainingLetters: []
+
+  }
+
+  componentDidMount() {
+    this.setState({
+      allLetters: [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
+      remainingLetters: [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+    })
 
   }
 
@@ -53,7 +64,6 @@ class App extends Component {
     return (
 
       <div className="App">
-        <h1>Start game</h1>
         <SideScore
           miss={this.state.miss}
           hit={this.state.hit}
@@ -73,6 +83,10 @@ class App extends Component {
           currNum={this.state.currentNumber}
           handleInput={this.handleInput}
           inputValue={this.state.playerGuessLetter}
+        />
+        <LetterPanel 
+          letters={this.state.allLetters}
+
         />
       </div>
 

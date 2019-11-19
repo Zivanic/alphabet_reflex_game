@@ -2,9 +2,10 @@
     position: absolute;
     right: 30px;
     text-align: right;
-
+    top: 100px;
+    font-weight: bold;
     .hit{
-        color: #528052;
+        color: #009688;
     }
     .miss{
         color: #f44336;
@@ -14,4 +15,64 @@
     }
 
     
+}
+
+.radioButton{
+    display: block;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.buttonHolder{
+    text-align: center;
+
+    button{
+        padding: 7px 10px;
+        color: #4b0082;
+        font-weight: bold;
+        border: 1px solid #4b0082;
+        border-radius: 5px;
+        background: #fff;
+    }
+    button:hover{
+        background:#4b0082;
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
+.inplayWrapper{
+    text-align: center;
+    margin-bottom: 35px;
+    margin-top: 20px;
+    input{
+        padding: 5px;
+        border-radius: 5px;
+        font-size: medium;
+
+    }
+}
+
+.lettersPanel{
+    margin: 50px auto;
+    width: 700px;
+
+    span{
+        padding: 7px;
+        margin: 8px;
+        margin-left: 0;
+        border: 1px solid #dedede;
+        width: 70px;
+        border-radius: 3px;
+        display: inline-block;
+        text-align: center;
+        font-weight: bold;
+        color: #757575;
+    }
+    span.hit{
+        color: #009688;
+    }
+    span.missed{
+        color: #f44336;
+    }
 }

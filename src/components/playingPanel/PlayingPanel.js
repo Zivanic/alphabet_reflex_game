@@ -3,7 +3,7 @@ import '../style.scss';
 
 
 const PlayingPanel = (props) => {
-    
+
     const inPlay = props.inPlay;
     const text = inPlay ? props.currNum : 'Press Start Button To Play'
     const playerGuess = (e) => {
@@ -11,11 +11,9 @@ const PlayingPanel = (props) => {
     }
 
     return (
-        <div>
-            <div className="numper-wrapper">
-                <h1>{text}</h1>
-            </div>
-            <input  value={props.inputValue} type="text" placeholder="Input Letter" maxLength="1" onChange={playerGuess} />
+        <div className="inplayWrapper">
+            <h1>{text}</h1>
+            <input value={props.inputValue} type="text" placeholder="Input Letter" maxLength="1" onChange={playerGuess} />
         </div>
 
     )

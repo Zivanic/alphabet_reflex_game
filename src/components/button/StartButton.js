@@ -15,7 +15,7 @@ const StartButton = (props) => {
     }
 
     return (
-        <div>
+        <div className="buttonHolder">
             <button onClick={start}> { inPlay ? 'Restart Game' : 'Start Game' } </button>
         </div>
 
