@@ -62,11 +62,11 @@ class App extends Component {
       left: 26,
       inPlay: false,
       playerGuessLetter: '',
-      remainingLetters: [this.state.remainingLetters, ...this.state.allLetters],
+      remainingLetters: [...this.state.allLetters],
       correctLetter: [],
       wrongLetter: []
     })
-    
+    clearTimeout(this.timeout)
   }
 
   handleInput = (letter) => {//function for storing input value to game state
@@ -89,13 +89,13 @@ class App extends Component {
       remainingLetters,
       currentNumber
     })
-
-    setTimeout(function () {
+    let timeout;
+    this.timeout = setTimeout(function () {
 
       callback()
 
     }, level)
-
+    
   }
 
   checkResult = () => {//checking result for each round
